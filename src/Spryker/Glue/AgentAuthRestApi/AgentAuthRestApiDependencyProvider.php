@@ -39,11 +39,6 @@ class AgentAuthRestApiDependencyProvider extends AbstractBundleDependencyProvide
      */
     public const SERVICE_UTIL_ENCODING = 'SERVICE_UTIL_ENCODING';
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     public function provideDependencies(Container $container): Container
     {
         $container = parent::provideDependencies($container);
@@ -56,11 +51,6 @@ class AgentAuthRestApiDependencyProvider extends AbstractBundleDependencyProvide
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addAgentClient(Container $container): Container
     {
         $container->set(static::CLIENT_AGENT, function (Container $container) {
@@ -72,11 +62,6 @@ class AgentAuthRestApiDependencyProvider extends AbstractBundleDependencyProvide
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addOauthClient(Container $container): Container
     {
         $container->set(static::CLIENT_OAUTH, function (Container $container) {
@@ -88,11 +73,6 @@ class AgentAuthRestApiDependencyProvider extends AbstractBundleDependencyProvide
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addOauthService(Container $container): Container
     {
         $container->set(static::SERVICE_OAUTH, function (Container $container) {
@@ -104,11 +84,6 @@ class AgentAuthRestApiDependencyProvider extends AbstractBundleDependencyProvide
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addUtilEncodingService(Container $container): Container
     {
         $container->set(static::SERVICE_UTIL_ENCODING, function (Container $container) {

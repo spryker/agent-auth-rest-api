@@ -29,11 +29,6 @@ class AuditLogger implements AuditLoggerInterface
      */
     protected const AUDIT_LOGGER_RECORD_KEY_CONTEXT_TAGS = 'tags';
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return void
-     */
     public function addAgentFailedLoginAuditLog(OauthRequestTransfer $oauthRequestTransfer): void
     {
         $context = $this->addOauthRequestContext(
@@ -44,11 +39,6 @@ class AuditLogger implements AuditLoggerInterface
         $this->addAuditLog('Failed Login (Agent)', $context);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return void
-     */
     public function addAgentSuccessfulLoginAuditLog(OauthRequestTransfer $oauthRequestTransfer): void
     {
         $context = $this->addOauthRequestContext(

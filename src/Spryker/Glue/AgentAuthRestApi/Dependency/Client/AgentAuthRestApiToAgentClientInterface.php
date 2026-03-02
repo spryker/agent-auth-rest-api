@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\CustomerQueryTransfer;
 
 interface AgentAuthRestApiToAgentClientInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CustomerQueryTransfer $customerQueryTransfer
-     *
-     * @return \Generated\Shared\Transfer\CustomerAutocompleteResponseTransfer
-     */
     public function findCustomersByQuery(CustomerQueryTransfer $customerQueryTransfer): CustomerAutocompleteResponseTransfer;
 }

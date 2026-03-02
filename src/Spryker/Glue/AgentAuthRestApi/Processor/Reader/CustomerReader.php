@@ -36,11 +36,6 @@ class CustomerReader implements CustomerReaderInterface
      */
     protected $agentAuthRestApiConfig;
 
-    /**
-     * @param \Spryker\Glue\AgentAuthRestApi\Dependency\Client\AgentAuthRestApiToAgentClientInterface $agentClient
-     * @param \Spryker\Glue\AgentAuthRestApi\Processor\RestResponseBuilder\AgentAccessTokenRestResponseBuilderInterface $agentAccessTokenRestResponseBuilder
-     * @param \Spryker\Glue\AgentAuthRestApi\AgentAuthRestApiConfig $agentAuthRestApiConfig
-     */
     public function __construct(
         AgentAuthRestApiToAgentClientInterface $agentClient,
         AgentAccessTokenRestResponseBuilderInterface $agentAccessTokenRestResponseBuilder,
@@ -51,11 +46,6 @@ class CustomerReader implements CustomerReaderInterface
         $this->agentAuthRestApiConfig = $agentAuthRestApiConfig;
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function getCustomers(RestRequestInterface $restRequest): RestResponseInterface
     {
         if (!$restRequest->getRestUser() || !$restRequest->getRestUser()->getIdAgent()) {
@@ -70,11 +60,6 @@ class CustomerReader implements CustomerReaderInterface
             ->createAgentCustomerSearchRestResponse($customerAutocompleteResponseTransfer, $restRequest);
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Generated\Shared\Transfer\CustomerQueryTransfer
-     */
     protected function createCustomerQueryTransfer(RestRequestInterface $restRequest): CustomerQueryTransfer
     {
         $offset = 0;

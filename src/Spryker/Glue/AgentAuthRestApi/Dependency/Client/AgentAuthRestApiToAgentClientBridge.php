@@ -25,11 +25,6 @@ class AgentAuthRestApiToAgentClientBridge implements AgentAuthRestApiToAgentClie
         $this->agentClient = $agentClient;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CustomerQueryTransfer $customerQueryTransfer
-     *
-     * @return \Generated\Shared\Transfer\CustomerAutocompleteResponseTransfer
-     */
     public function findCustomersByQuery(CustomerQueryTransfer $customerQueryTransfer): CustomerAutocompleteResponseTransfer
     {
         return $this->agentClient->findCustomersByQuery($customerQueryTransfer);

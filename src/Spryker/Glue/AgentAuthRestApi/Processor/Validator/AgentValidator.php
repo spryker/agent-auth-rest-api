@@ -19,19 +19,11 @@ class AgentValidator implements AgentValidatorInterface
      */
     protected $agentAuthRestApiConfig;
 
-    /**
-     * @param \Spryker\Glue\AgentAuthRestApi\AgentAuthRestApiConfig $agentAuthRestApiConfig
-     */
     public function __construct(AgentAuthRestApiConfig $agentAuthRestApiConfig)
     {
         $this->agentAuthRestApiConfig = $agentAuthRestApiConfig;
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Generated\Shared\Transfer\RestErrorMessageTransfer|null
-     */
     public function validate(RestRequestInterface $restRequest): ?RestErrorMessageTransfer
     {
         if (!$this->isAgentResource($restRequest) || $this->isAgent($restRequest)) {
@@ -44,11 +36,6 @@ class AgentValidator implements AgentValidatorInterface
             ->setDetail(AgentAuthRestApiConfig::RESPONSE_DETAIL_AGENT_ONLY);
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return bool
-     */
     protected function isAgentResource(RestRequestInterface $restRequest): bool
     {
         return in_array(
@@ -58,11 +45,6 @@ class AgentValidator implements AgentValidatorInterface
         );
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return bool
-     */
     protected function isAgent(RestRequestInterface $restRequest): bool
     {
         $restUserTransfer = $restRequest->getRestUser();

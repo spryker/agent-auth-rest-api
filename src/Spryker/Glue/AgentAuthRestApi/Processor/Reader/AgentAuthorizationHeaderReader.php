@@ -22,10 +22,6 @@ class AgentAuthorizationHeaderReader implements AgentAuthorizationHeaderReaderIn
      */
     protected $utilEncodingService;
 
-    /**
-     * @param \Spryker\Glue\AgentAuthRestApi\Dependency\Service\AgentAuthRestApiToOauthServiceInterface $oauthService
-     * @param \Spryker\Glue\AgentAuthRestApi\Dependency\Service\AgentAuthRestApiToUtilEncodingServiceInterface $utilEncodingService
-     */
     public function __construct(
         AgentAuthRestApiToOauthServiceInterface $oauthService,
         AgentAuthRestApiToUtilEncodingServiceInterface $utilEncodingService
@@ -34,11 +30,6 @@ class AgentAuthorizationHeaderReader implements AgentAuthorizationHeaderReaderIn
         $this->utilEncodingService = $utilEncodingService;
     }
 
-    /**
-     * @param string $agentAccessTokenHeader
-     *
-     * @return int|null
-     */
     public function getIdAgentFromOauthAccessToken(string $agentAccessTokenHeader): ?int
     {
         $agentAccessToken = $this->extractToken($agentAccessTokenHeader);
@@ -54,11 +45,6 @@ class AgentAuthorizationHeaderReader implements AgentAuthorizationHeaderReaderIn
         return $decodedOauthUserId['id_agent'] ?? null;
     }
 
-    /**
-     * @param string $authorizationToken
-     *
-     * @return string|null
-     */
     public function extractToken(string $authorizationToken): ?string
     {
         $pieces = preg_split('/\s+/', $authorizationToken);
@@ -66,11 +52,6 @@ class AgentAuthorizationHeaderReader implements AgentAuthorizationHeaderReaderIn
         return $pieces[1] ?? null;
     }
 
-    /**
-     * @param string $authorizationToken
-     *
-     * @return string|null
-     */
     public function extractTokenType(string $authorizationToken): ?string
     {
         $pieces = preg_split('/\s+/', $authorizationToken);

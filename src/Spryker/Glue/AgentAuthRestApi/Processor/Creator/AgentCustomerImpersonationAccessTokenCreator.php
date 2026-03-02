@@ -27,10 +27,6 @@ class AgentCustomerImpersonationAccessTokenCreator implements AgentCustomerImper
      */
     protected $agentAccessTokenRestResponseBuilder;
 
-    /**
-     * @param \Spryker\Glue\AgentAuthRestApi\Dependency\Client\AgentAuthRestApiToOauthClientInterface $oauthClient
-     * @param \Spryker\Glue\AgentAuthRestApi\Processor\RestResponseBuilder\AgentAccessTokenRestResponseBuilderInterface $agentAccessTokenRestResponseBuilder
-     */
     public function __construct(
         AgentAuthRestApiToOauthClientInterface $oauthClient,
         AgentAccessTokenRestResponseBuilderInterface $agentAccessTokenRestResponseBuilder
@@ -39,12 +35,6 @@ class AgentCustomerImpersonationAccessTokenCreator implements AgentCustomerImper
         $this->agentAccessTokenRestResponseBuilder = $agentAccessTokenRestResponseBuilder;
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     * @param \Generated\Shared\Transfer\RestAgentCustomerImpersonationAccessTokensRequestAttributesTransfer $restAgentCustomerImpersonationAccessTokensRequestAttributesTransfer
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function create(
         RestRequestInterface $restRequest,
         RestAgentCustomerImpersonationAccessTokensRequestAttributesTransfer $restAgentCustomerImpersonationAccessTokensRequestAttributesTransfer

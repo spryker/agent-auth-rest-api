@@ -38,9 +38,6 @@ use Spryker\Glue\Kernel\AbstractFactory;
  */
 class AgentAuthRestApiFactory extends AbstractFactory
 {
-    /**
-     * @return \Spryker\Glue\AgentAuthRestApi\Processor\Reader\CustomerReaderInterface
-     */
     public function createCustomerReader(): CustomerReaderInterface
     {
         return new CustomerReader(
@@ -50,9 +47,6 @@ class AgentAuthRestApiFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\AgentAuthRestApi\Processor\Creator\AgentAccessTokenCreatorInterface
-     */
     public function createAgentAccessTokenCreator(): AgentAccessTokenCreatorInterface
     {
         return new AgentAccessTokenCreator(
@@ -62,9 +56,6 @@ class AgentAuthRestApiFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\AgentAuthRestApi\Processor\Creator\AgentCustomerImpersonationAccessTokenCreatorInterface
-     */
     public function createAgentCustomerImpersonationAccessTokenCreator(): AgentCustomerImpersonationAccessTokenCreatorInterface
     {
         return new AgentCustomerImpersonationAccessTokenCreator(
@@ -73,17 +64,11 @@ class AgentAuthRestApiFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\AgentAuthRestApi\Processor\Validator\AgentValidatorInterface
-     */
     public function createAgentValidator(): AgentValidatorInterface
     {
         return new AgentValidator($this->getConfig());
     }
 
-    /**
-     * @return \Spryker\Glue\AgentAuthRestApi\Processor\Validator\AgentAccessTokenRestRequestValidatorInterface
-     */
     public function createAgentAccessTokenRestRequestValidator(): AgentAccessTokenRestRequestValidatorInterface
     {
         return new AgentAccessTokenRestRequestValidator(
@@ -92,33 +77,21 @@ class AgentAuthRestApiFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\AgentAuthRestApi\Processor\RestResponseBuilder\AgentAccessTokenRestResponseBuilderInterface
-     */
     public function createAgentAccessTokenRestResponseBuilder(): AgentAccessTokenRestResponseBuilderInterface
     {
         return new AgentAccessTokenRestResponseBuilder($this->getResourceBuilder());
     }
 
-    /**
-     * @return \Spryker\Glue\AgentAuthRestApi\Processor\Mapper\RestUserMapperInterface
-     */
     public function createRestUserMapper(): RestUserMapperInterface
     {
         return new RestUserMapper($this->createAgentAuthorizationHeaderReader());
     }
 
-    /**
-     * @return \Spryker\Glue\AgentAuthRestApi\Processor\Finder\RestUserFinderInterface
-     */
     public function createRestUserFinder(): RestUserFinderInterface
     {
         return new RestUserFinder($this->createAgentAuthorizationHeaderReader());
     }
 
-    /**
-     * @return \Spryker\Glue\AgentAuthRestApi\Processor\Reader\AgentAuthorizationHeaderReaderInterface
-     */
     public function createAgentAuthorizationHeaderReader(): AgentAuthorizationHeaderReaderInterface
     {
         return new AgentAuthorizationHeaderReader(
@@ -127,41 +100,26 @@ class AgentAuthRestApiFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\AgentAuthRestApi\Processor\Logger\AuditLoggerInterface
-     */
     public function createAuditLogger(): AuditLoggerInterface
     {
         return new AuditLogger();
     }
 
-    /**
-     * @return \Spryker\Glue\AgentAuthRestApi\Dependency\Client\AgentAuthRestApiToAgentClientInterface
-     */
     public function getAgentClient(): AgentAuthRestApiToAgentClientInterface
     {
         return $this->getProvidedDependency(AgentAuthRestApiDependencyProvider::CLIENT_AGENT);
     }
 
-    /**
-     * @return \Spryker\Glue\AgentAuthRestApi\Dependency\Client\AgentAuthRestApiToOauthClientInterface
-     */
     public function getOauthClient(): AgentAuthRestApiToOauthClientInterface
     {
         return $this->getProvidedDependency(AgentAuthRestApiDependencyProvider::CLIENT_OAUTH);
     }
 
-    /**
-     * @return \Spryker\Glue\AgentAuthRestApi\Dependency\Service\AgentAuthRestApiToOauthServiceInterface
-     */
     public function getOauthService(): AgentAuthRestApiToOauthServiceInterface
     {
         return $this->getProvidedDependency(AgentAuthRestApiDependencyProvider::SERVICE_OAUTH);
     }
 
-    /**
-     * @return \Spryker\Glue\AgentAuthRestApi\Dependency\Service\AgentAuthRestApiToUtilEncodingServiceInterface
-     */
     public function getUtilEncodingService(): AgentAuthRestApiToUtilEncodingServiceInterface
     {
         return $this->getProvidedDependency(AgentAuthRestApiDependencyProvider::SERVICE_UTIL_ENCODING);

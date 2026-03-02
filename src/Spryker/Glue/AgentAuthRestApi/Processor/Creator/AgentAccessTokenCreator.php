@@ -33,11 +33,6 @@ class AgentAccessTokenCreator implements AgentAccessTokenCreatorInterface
      */
     protected AuditLoggerInterface $auditLogger;
 
-    /**
-     * @param \Spryker\Glue\AgentAuthRestApi\Dependency\Client\AgentAuthRestApiToOauthClientInterface $oauthClient
-     * @param \Spryker\Glue\AgentAuthRestApi\Processor\RestResponseBuilder\AgentAccessTokenRestResponseBuilderInterface $agentAccessTokenRestResponseBuilder
-     * @param \Spryker\Glue\AgentAuthRestApi\Processor\Logger\AuditLoggerInterface $auditLogger
-     */
     public function __construct(
         AgentAuthRestApiToOauthClientInterface $oauthClient,
         AgentAccessTokenRestResponseBuilderInterface $agentAccessTokenRestResponseBuilder,
@@ -48,12 +43,6 @@ class AgentAccessTokenCreator implements AgentAccessTokenCreatorInterface
         $this->auditLogger = $auditLogger;
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     * @param \Generated\Shared\Transfer\RestAgentAccessTokensRequestAttributesTransfer $restAgentAccessTokensRequestAttributesTransfer
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function createAccessToken(
         RestRequestInterface $restRequest,
         RestAgentAccessTokensRequestAttributesTransfer $restAgentAccessTokensRequestAttributesTransfer

@@ -32,9 +32,6 @@ use SprykerTest\Glue\GlueApplication\Stub\RestRequest;
  */
 class AgentAccessTokensResourceControllerTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testPostActionAddsAgentFailedLoginAuditLogWhenLoginAttemptFails(): void
     {
         // Arrange
@@ -46,9 +43,6 @@ class AgentAccessTokensResourceControllerTest extends Unit
         $agentAccessTokensResourceControllerMock->postAction($restRequest, $restAgentAccessTokensRequestAttributesTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testPostActionAddsAgentSuccessfulLoginAuditLogOnSuccessfulLogin(): void
     {
         // Arrange

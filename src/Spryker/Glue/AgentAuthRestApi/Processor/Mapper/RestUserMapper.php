@@ -19,20 +19,11 @@ class RestUserMapper implements RestUserMapperInterface
      */
     protected $agentAuthorizationHeaderReader;
 
-    /**
-     * @param \Spryker\Glue\AgentAuthRestApi\Processor\Reader\AgentAuthorizationHeaderReaderInterface $agentAuthorizationHeaderReader
-     */
     public function __construct(AgentAuthorizationHeaderReaderInterface $agentAuthorizationHeaderReader)
     {
         $this->agentAuthorizationHeaderReader = $agentAuthorizationHeaderReader;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RestUserTransfer $restUserTransfer
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Generated\Shared\Transfer\RestUserTransfer
-     */
     public function mapAgentDataToRestUserTransfer(RestUserTransfer $restUserTransfer, RestRequestInterface $restRequest): RestUserTransfer
     {
         $agentAccessTokenHeader = $restRequest->getHttpRequest()->headers->get(AgentAuthRestApiConfig::HEADER_X_AGENT_AUTHORIZATION);

@@ -19,19 +19,11 @@ class RestUserFinder implements RestUserFinderInterface
      */
     protected $agentAuthorizationHeaderReader;
 
-    /**
-     * @param \Spryker\Glue\AgentAuthRestApi\Processor\Reader\AgentAuthorizationHeaderReaderInterface $agentAuthorizationHeaderReader
-     */
     public function __construct(AgentAuthorizationHeaderReaderInterface $agentAuthorizationHeaderReader)
     {
         $this->agentAuthorizationHeaderReader = $agentAuthorizationHeaderReader;
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Generated\Shared\Transfer\RestUserTransfer|null
-     */
     public function findAgentRestUser(RestRequestInterface $restRequest): ?RestUserTransfer
     {
         $agentAccessTokenHeader = $restRequest->getHttpRequest()->headers->get(AgentAuthRestApiConfig::HEADER_X_AGENT_AUTHORIZATION);

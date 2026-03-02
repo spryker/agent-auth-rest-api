@@ -28,19 +28,11 @@ class AgentAccessTokenRestResponseBuilder implements AgentAccessTokenRestRespons
      */
     protected $restResourceBuilder;
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceBuilderInterface $restResourceBuilder
-     */
     public function __construct(RestResourceBuilderInterface $restResourceBuilder)
     {
         $this->restResourceBuilder = $restResourceBuilder;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthResponseTransfer $oauthResponseTransfer
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function createAgentAccessTokensRestResponse(OauthResponseTransfer $oauthResponseTransfer): RestResponseInterface
     {
         $restAgentAccessTokensAttributesTransfer = (new RestAgentAccessTokensAttributesTransfer())
@@ -58,11 +50,6 @@ class AgentAccessTokenRestResponseBuilder implements AgentAccessTokenRestRespons
             ->addResource($accessTokenResource);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthResponseTransfer $oauthResponseTransfer
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function createAgentCustomerImpersonationAccessTokensRestResponse(OauthResponseTransfer $oauthResponseTransfer): RestResponseInterface
     {
         $restAgentCustomerImpersonationAccessTokensAttributesTransfer = (new RestAgentCustomerImpersonationAccessTokensAttributesTransfer())
@@ -80,12 +67,6 @@ class AgentAccessTokenRestResponseBuilder implements AgentAccessTokenRestRespons
             ->addResource($accessTokenResource);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CustomerAutocompleteResponseTransfer $customerAutocompleteResponseTransfer
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function createAgentCustomerSearchRestResponse(
         CustomerAutocompleteResponseTransfer $customerAutocompleteResponseTransfer,
         RestRequestInterface $restRequest
@@ -116,9 +97,6 @@ class AgentAccessTokenRestResponseBuilder implements AgentAccessTokenRestRespons
         );
     }
 
-    /**
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function createInvalidCredentialsErrorResponse(): RestResponseInterface
     {
         $restErrorMessageTransfer = (new RestErrorMessageTransfer())
@@ -131,9 +109,6 @@ class AgentAccessTokenRestResponseBuilder implements AgentAccessTokenRestRespons
             ->addError($restErrorMessageTransfer);
     }
 
-    /**
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function createFailedToImpersonateCustomerErrorResponse(): RestResponseInterface
     {
         $restErrorMessageTransfer = (new RestErrorMessageTransfer())
@@ -146,9 +121,6 @@ class AgentAccessTokenRestResponseBuilder implements AgentAccessTokenRestRespons
             ->addError($restErrorMessageTransfer);
     }
 
-    /**
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function createActionAvailableForAgentsOnlyErrorResponse(): RestResponseInterface
     {
         $restErrorMessageTransfer = (new RestErrorMessageTransfer())

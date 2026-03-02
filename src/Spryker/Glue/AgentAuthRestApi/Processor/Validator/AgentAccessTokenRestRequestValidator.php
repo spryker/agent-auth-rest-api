@@ -29,10 +29,6 @@ class AgentAccessTokenRestRequestValidator implements AgentAccessTokenRestReques
      */
     protected $oauthClient;
 
-    /**
-     * @param \Spryker\Glue\AgentAuthRestApi\Processor\Reader\AgentAuthorizationHeaderReaderInterface $agentAuthorizationHeaderReader
-     * @param \Spryker\Glue\AgentAuthRestApi\Dependency\Client\AgentAuthRestApiToOauthClientInterface $oauthClient
-     */
     public function __construct(
         AgentAuthorizationHeaderReaderInterface $agentAuthorizationHeaderReader,
         AgentAuthRestApiToOauthClientInterface $oauthClient
@@ -41,12 +37,6 @@ class AgentAccessTokenRestRequestValidator implements AgentAccessTokenRestReques
         $this->oauthClient = $oauthClient;
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Generated\Shared\Transfer\RestErrorCollectionTransfer|null
-     */
     public function validate(Request $request, RestRequestInterface $restRequest): ?RestErrorCollectionTransfer
     {
         $agentAccessTokenHeader = $request->headers->get(AgentAuthRestApiConfig::HEADER_X_AGENT_AUTHORIZATION);
