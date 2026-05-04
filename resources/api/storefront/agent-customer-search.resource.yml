@@ -1,0 +1,100 @@
+resource:
+    name: AgentCustomerSearch
+    shortName: agent-customer-search
+    description: 'Searches for customers by query string. Accessible only for authenticated agents.'
+    security: "is_granted('ROLE_AGENT')"
+    securityCode: '4103'
+    securityMessage: 'Action is available to agent user only.'
+
+    provider: Spryker\Glue\AgentAuthRestApi\Api\Storefront\Provider\AgentCustomerSearchStorefrontProvider
+    paginationEnabled: false
+
+    operations:
+        - type: GetCollection
+          uriTemplate: '/agent-customer-search'
+          description: 'Searches for customers by query string. Accessible only for authenticated agents.'
+          normalizationContext:
+              gen_id: false
+          openapiContext:
+              parameters:
+                  - name: q
+                    in: query
+                    description: 'Search query matched against customer email, first name, last name and reference.'
+                    required: true
+                    schema:
+                        type: string
+                    example: 'sonia'
+                  - name: 'page[limit]'
+                    in: query
+                    description: 'Maximum number of customers per page.'
+                    required: false
+                    schema:
+                        type: integer
+                    example: 10
+                  - name: 'page[offset]'
+                    in: query
+                    description: 'Offset of the first customer to return (zero-based).'
+                    required: false
+                    schema:
+                        type: integer
+                    example: 0
+
+    properties:
+        customers:
+            type: array
+            writable: false
+            readable: true
+            description: 'List of customers matching the search query.'
+            openapiContext:
+                items:
+                    type: object
+                    required: ['customerReference', 'email', 'firstName', 'lastName']
+                    properties:
+                        customerReference:
+                            type: string
+                            example: 'DE--1'
+                        email:
+                            type: string
+                            example: 'sonia@spryker.com'
+                        firstName:
+                            type: string
+                            example: 'Sonia'
+                        lastName:
+                            type: string
+                            example: 'Wagner'
+                example:
+                    - customerReference: 'DE--1'
+                      email: 'sonia@spryker.com'
+                      firstName: 'Sonia'
+                      lastName: 'Wagner'
+                    - customerReference: 'DE--2'
+                      email: 'jason@spryker.com'
+                      firstName: 'Jason'
+                      lastName: 'Smith'
+
+        pagination:
+            type: array
+            writable: false
+            readable: true
+            required: false
+            description: 'Pagination details for the search result.'
+            openapiContext:
+                required: ['numFound', 'currentPage', 'maxPage', 'currentItemsPerPage']
+                properties:
+                    numFound:
+                        type: integer
+                        example: 42
+                    currentPage:
+                        type: integer
+                        example: 1
+                    maxPage:
+                        type: integer
+                        example: 5
+                    currentItemsPerPage:
+                        type: integer
+                        example: 10
+                example:
+                    numFound: 42
+                    currentPage: 1
+                    maxPage: 5
+                    currentItemsPerPage: 10

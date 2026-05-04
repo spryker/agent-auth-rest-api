@@ -91,6 +91,16 @@ class AgentAuthRestApiConfig extends AbstractBundleConfig
     protected const DEFAULT_CUSTOMER_SEARCH_PAGINATION_LIMIT = 10;
 
     /**
+     * @var int
+     */
+    protected const DEFAULT_CUSTOMER_SEARCH_PAGINATION_OFFSET = 0;
+
+    /**
+     * @var string
+     */
+    protected const REQUEST_PARAMETER_QUERY = 'q';
+
+    /**
      * Specification:
      * - Returns resources which are accessible only for agents.
      *
@@ -117,5 +127,27 @@ class AgentAuthRestApiConfig extends AbstractBundleConfig
     public function getDefaultCustomerSearchPaginationLimit(): int
     {
         return static::DEFAULT_CUSTOMER_SEARCH_PAGINATION_LIMIT;
+    }
+
+    /**
+     * Specification:
+     * - Returns the default pagination offset for customer search request.
+     *
+     * @api
+     */
+    public function getDefaultCustomerSearchPaginationOffset(): int
+    {
+        return static::DEFAULT_CUSTOMER_SEARCH_PAGINATION_OFFSET;
+    }
+
+    /**
+     * Specification:
+     * - Returns the query string parameter name used by `GET /agent-customer-search`.
+     *
+     * @api
+     */
+    public function getRequestParameterQuery(): string
+    {
+        return static::REQUEST_PARAMETER_QUERY;
     }
 }
