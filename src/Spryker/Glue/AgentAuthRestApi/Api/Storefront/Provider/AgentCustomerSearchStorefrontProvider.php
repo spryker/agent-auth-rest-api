@@ -31,8 +31,8 @@ class AgentCustomerSearchStorefrontProvider extends AbstractStorefrontProvider
     {
         $query = (string)$this->getRequest()->query->get($this->agentAuthRestApiConfig->getRequestParameterQuery(), '');
 
-        $limit = $this->getPaginationLimit() ?? $this->agentAuthRestApiConfig->getDefaultCustomerSearchPaginationLimit();
-        $offset = $this->getPaginationOffset() ?? $this->agentAuthRestApiConfig->getDefaultCustomerSearchPaginationOffset();
+        $limit = $this->getPaginationLimit($this->agentAuthRestApiConfig->getDefaultCustomerSearchPaginationLimit());
+        $offset = $this->getPaginationOffset($this->agentAuthRestApiConfig->getDefaultCustomerSearchPaginationOffset());
 
         $customerQueryTransfer = (new CustomerQueryTransfer())
             ->setQuery($query)

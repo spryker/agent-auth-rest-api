@@ -12,21 +12,29 @@ use Spryker\Glue\Kernel\AbstractBundleConfig;
 class AgentAuthRestApiConfig extends AbstractBundleConfig
 {
     /**
+     * @api
+     *
      * @var string
      */
     public const RESOURCE_AGENT_CUSTOMER_IMPERSONATION_ACCESS_TOKENS = 'agent-customer-impersonation-access-tokens';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESOURCE_AGENT_ACCESS_TOKENS = 'agent-access-tokens';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESOURCE_AGENT_CUSTOMER_SEARCH = 'agent-customer-search';
 
     /**
+     * @api
+     *
      * @uses \Spryker\Zed\OauthAgentConnector\OauthAgentConnectorConfig::GRANT_TYPE_AGENT_CREDENTIALS
      *
      * @var string
@@ -34,6 +42,8 @@ class AgentAuthRestApiConfig extends AbstractBundleConfig
     public const GRANT_TYPE_AGENT_CREDENTIALS = 'agent_credentials';
 
     /**
+     * @api
+     *
      * @uses \Spryker\Zed\OauthCustomerConnector\OauthCustomerConnectorConfig::GRANT_TYPE_CUSTOMER_IMPERSONATION
      *
      * @var string
@@ -41,46 +51,64 @@ class AgentAuthRestApiConfig extends AbstractBundleConfig
     public const GRANT_TYPE_CUSTOMER_IMPERSONATION = 'customer_impersonation';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const HEADER_X_AGENT_AUTHORIZATION = 'X-Agent-Authorization';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESPONSE_CODE_INVALID_LOGIN = '4101';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESPONSE_DETAIL_INVALID_LOGIN = 'Failed to authenticate an agent.';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESPONSE_CODE_INVALID_ACCESS_TOKEN = '4102';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESPONSE_DETAIL_INVALID_ACCESS_TOKEN = 'Agent access token is invalid.';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESPONSE_CODE_AGENT_ONLY = '4103';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESPONSE_DETAIL_AGENT_ONLY = 'Action is available to agent user only.';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESPONSE_CODE_FAILED_TO_IMPERSONATE_CUSTOMER = '4104';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESPONSE_DETAIL_FAILED_TO_IMPERSONATE_CUSTOMER = 'Failed to impersonate a customer.';
