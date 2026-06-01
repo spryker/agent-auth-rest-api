@@ -2,6 +2,7 @@ resource:
     name: AgentAccessTokens
     shortName: agent-access-tokens
     description: 'Creates agent access tokens using username and password credentials.'
+    resourceAttributesClassName: 'Generated\Shared\Transfer\RestAgentAccessTokensRequestAttributesTransfer'
 
     processor: Spryker\Glue\AgentAuthRestApi\Api\Storefront\Processor\AgentAccessTokensStorefrontProcessor
     paginationEnabled: false
