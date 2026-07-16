@@ -73,28 +73,30 @@ resource:
                       lastName: 'Smith'
 
         pagination:
-            type: array
+            type: object
+            objectName: Pagination
             writable: false
             readable: true
             required: false
             description: 'Pagination details for the search result.'
-            openapiContext:
-                required: ['numFound', 'currentPage', 'maxPage', 'currentItemsPerPage']
-                properties:
-                    numFound:
-                        type: integer
+            properties:
+                numFound:
+                    type: integer
+                    description: 'Total number of items found.'
+                    openapiContext:
                         example: 42
-                    currentPage:
-                        type: integer
+                currentPage:
+                    type: integer
+                    description: 'Current page number.'
+                    openapiContext:
                         example: 1
-                    maxPage:
-                        type: integer
+                maxPage:
+                    type: integer
+                    description: 'Total number of pages.'
+                    openapiContext:
                         example: 5
-                    currentItemsPerPage:
-                        type: integer
+                currentItemsPerPage:
+                    type: integer
+                    description: 'Number of items per page.'
+                    openapiContext:
                         example: 10
-                example:
-                    numFound: 42
-                    currentPage: 1
-                    maxPage: 5
-                    currentItemsPerPage: 10

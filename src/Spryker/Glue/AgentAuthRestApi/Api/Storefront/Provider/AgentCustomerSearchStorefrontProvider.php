@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Spryker\Glue\AgentAuthRestApi\Api\Storefront\Provider;
 
+use Generated\Api\Storefront\AgentCustomerSearch\AgentCustomerSearchPaginationStorefrontObject;
 use Generated\Api\Storefront\AgentCustomerSearchStorefrontResource;
 use Generated\Shared\Transfer\CustomerQueryTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
@@ -52,7 +53,7 @@ class AgentCustomerSearchStorefrontProvider extends AbstractStorefrontProvider
         $resource->customers = $customers;
         // currentPage and maxPage will be read by Spryker\ApiPlatform\EventSubscriber\PaginationLinksResponseSubscriber
         // to emit JSON:API top-level pagination links (first, last, prev, next).
-        $resource->pagination = $this->calculatePagination($offset, $limit, $nbResults);
+        $resource->pagination = AgentCustomerSearchPaginationStorefrontObject::fromArray($this->calculatePagination($offset, $limit, $nbResults));
 
         return [$resource];
     }
