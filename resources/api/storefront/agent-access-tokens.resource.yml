@@ -13,6 +13,12 @@ resource:
           description: 'Issues an agent access token using agent credentials (email + password).'
           normalizationContext:
               gen_id: false
+          openapiContext:
+              responses:
+                  201:
+                      description: 'Agent access token issued.'
+                  401:
+                      description: 'Missing, empty or rejected agent credentials (code 4101).'
 
     properties:
         username:

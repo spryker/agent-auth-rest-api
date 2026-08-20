@@ -16,6 +16,11 @@ resource:
           normalizationContext:
               gen_id: false
           openapiContext:
+              responses:
+                  200:
+                      description: 'Collection of customers matching the query.'
+                  401:
+                      description: 'No agent access token, an invalid one, or a valid token that is not an agent token (code 4103).'
               parameters:
                   - name: q
                     in: query

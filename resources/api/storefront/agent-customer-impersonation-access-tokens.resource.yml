@@ -15,6 +15,12 @@ resource:
           description: 'Issues an access token that lets an authenticated agent act on behalf of the specified customer.'
           normalizationContext:
               gen_id: false
+          openapiContext:
+              responses:
+                  201:
+                      description: 'Customer impersonation access token issued.'
+                  401:
+                      description: 'No agent access token, an invalid one, or a valid token that is not an agent token (code 4103); or the customer could not be impersonated (code 4104).'
 
     properties:
         customerReference:
