@@ -24,8 +24,8 @@ resource:
               parameters:
                   - name: q
                     in: query
-                    description: 'Search query matched against customer email, first name, last name and reference.'
-                    required: true
+                    description: 'Search query matched against customer email, first name, last name and reference. Absent or empty returns the unfiltered collection.'
+                    required: false
                     schema:
                         type: string
                     example: 'sonia'
@@ -83,6 +83,7 @@ resource:
             writable: false
             readable: true
             required: false
+            collectionOnly: true
             description: 'Pagination details for the search result.'
             properties:
                 numFound:
