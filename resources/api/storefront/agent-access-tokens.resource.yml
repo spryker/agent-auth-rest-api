@@ -32,6 +32,7 @@ resource:
 
         password:
             type: string
+            allowWhitespace: true
             writable: true
             readable: false
             required: false
