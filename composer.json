@@ -19,14 +19,17 @@
     "require-dev": {
         "spryker/api-platform": "*",
         "spryker/code-sniffer": "*",
-        "spryker/testify": "*"
+        "spryker/customer": "*",
+        "spryker/testify": "*",
+        "spryker/user": "*"
     },
     "suggest": {
         "spryker/api-platform": "Use this package when you want to use the API Platform code."
     },
     "autoload": {
         "psr-4": {
-            "Spryker\\": "src/Spryker/"
+            "Spryker\\": "src/Spryker/",
+            "SprykerTest\\Glue\\AgentAuthRestApi\\Helper\\": "tests/SprykerTest/Glue/AgentAuthRestApi/_support/Helper/"
         }
     },
     "autoload-dev": {
