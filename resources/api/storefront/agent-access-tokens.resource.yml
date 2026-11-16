@@ -19,6 +19,8 @@ resource:
                       description: 'Agent access token issued.'
                   401:
                       description: 'Missing, empty or rejected agent credentials (code 4101).'
+                  429:
+                      description: 'Too many login attempts for the agent account or from the client IP (code 4401); the login is temporarily blocked.'
 
     properties:
         username:
